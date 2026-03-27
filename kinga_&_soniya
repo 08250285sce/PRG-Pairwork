@@ -1,0 +1,44 @@
+# --- Input Section ---
+name = input("Enter student name: ")
+m1 = float(input("Enter Module 1 marks (0-100): "))
+m2 = float(input("Enter Module 2 marks (0-100): "))
+m3 = float(input("Enter Module 3 marks (0-100): "))
+m4 = float(input("Enter Module 4 marks (0-100): "))
+attendance = float(input("Enter attendance percentage: "))
+
+# --- Logic Section ---
+average = (m1 + m2 + m3 + m4) / 4
+
+# Determine Pass/Fail
+status = "Pass" if average >= 50 else "Fail"
+
+# Determine Grade
+if average >= 80:
+    grade = "A"
+elif average >= 70:
+    grade = "B"
+elif average >= 60:
+    grade = "C"
+elif average >= 50:
+    grade = "D"
+else:
+    grade = "F"
+
+# Determine Reward Eligibility
+reward = "Eligible" if (status == "Pass" and attendance >= 90) else "Not Eligible"
+
+# --- Output Section (Different Formatting Methods) ---
+
+print("\n--- Student Report ---")
+
+# 1. Using f-strings (Modern/Preferred)
+print(f"Name: {name}")
+print(f"Average Mark: {average:.2f}%")
+
+# 2. Using .format() method
+print("Grade: {}".format(grade))
+print("Status: {}".format(status))
+
+# 3. Using % operator (Legacy style)
+print("Attendance: %.1f%%" % attendance)
+print("Reward Eligibility: %s" % reward)
